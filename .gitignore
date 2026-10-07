@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# Environment
+.env
+*.env.local
+
+# Node
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Docker
+.dockerignore
+
+# ML Models
+*.pkl
+*.joblib
+*.h5
+
+# Data
+# (keep data/ tracked for sample data)
+
+# OS
+.DS_Store
+Thumbs.db
