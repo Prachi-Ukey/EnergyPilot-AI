@@ -21,8 +21,6 @@ https://energypilot-ai.onrender.com
 **Backend Health:**  
 https://energypilot-ai.onrender.com/api/health
 
-> **Note on Render Free Tier:** The frontend and backend are deployed on Render's free tier. If the backend has been inactive, the service may take some time to wake up before responding to the first request.
-
 ---
 
 # 📌 Overview
