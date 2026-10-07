@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
     try:
         # We need to make sure the seed file is accessible. Inside docker it's at /data/energy_consumption.csv
         import os
-        seed_path = "/data/energy_consumption.csv" if os.path.exists("/data") else "../data/energy_consumption.csv"
+        seed_path = "data/energy_consumption.csv"
         seed_database_if_empty(db, seed_path)
     finally:
         db.close()
