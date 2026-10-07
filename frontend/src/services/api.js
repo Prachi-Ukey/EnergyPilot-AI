@@ -48,6 +48,7 @@ export const energyApi = {
   // Prediction
   getPrediction: () => api.get('/prediction'),
   getNext24HourPrediction: () => api.get('/prediction/next24hours'),
+  predictEnergy: (data) => api.post('/prediction', data),
 
   // Recommendations
   getRecommendations: () => api.get('/recommendations'),
