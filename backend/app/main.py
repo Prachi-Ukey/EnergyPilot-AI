@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from app.database.connection import engine, Base, get_db
 from app.config import get_settings
 from app.services.seed_service import seed_database_if_empty
-from app.routes import dashboard, energy, anomalies, prediction, recommendations
+
 
 settings = get_settings()
 
@@ -38,11 +38,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])
-app.include_router(energy.router, prefix="/api/energy", tags=["Energy"])
-app.include_router(anomalies.router, prefix="/api/anomalies", tags=["Anomalies"])
-app.include_router(prediction.router, prefix="/api/prediction", tags=["Prediction"])
-app.include_router(recommendations.router, prefix="/api/recommendations", tags=["Recommendations"])
+from app.routes import dashboard, energy, anomalies, prediction, recommendations, auth
+from app.auth import get_current_user
+
+app.include_router(auth.router, prefix="/api/auth", tags=["Auth"])
+app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"], dependencies=[Depends(get_current_user)])
+app.include_router(energy.router, prefix="/api/energy", tags=["Energy"], dependencies=[Depends(get_current_user)])
+app.include_router(anomalies.router, prefix="/api/anomalies", tags=["Anomalies"], dependencies=[Depends(get_current_user)])
+app.include_router(prediction.router, prefix="/api/prediction", tags=["Prediction"], dependencies=[Depends(get_current_user)])
+app.include_router(recommendations.router, prefix="/api/recommendations", tags=["Recommendations"], dependencies=[Depends(get_current_user)])
 
 @app.get("/api/health", tags=["Health"])
 def health_check(db: Session = Depends(get_db)):

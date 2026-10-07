@@ -6,19 +6,23 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from app.main import app
+from app.auth import get_current_user
+from app.database.models import User
+
+# Override authentication dependency for tests
+def mock_get_current_user():
+    return User(id=999, name="Test User", email="test@example.com", role="Energy Analyst")
+
+app.dependency_overrides[get_current_user] = mock_get_current_user
 
 client = TestClient(app)
 
 def test_health_check():
     response = client.get("/api/health")
-    # Health check depends on DB, but if it fails, it returns 503.
-    # In tests without DB, we just want to ensure endpoint exists.
     assert response.status_code in [200, 503]
 
 def test_get_energy():
     response = client.get("/api/energy?limit=10")
-    # It should return a list, but if DB connection fails, maybe 500.
-    # We will just verify it's a valid endpoint.
     assert response.status_code in [200, 500]
     
     if response.status_code == 200:
@@ -47,8 +51,6 @@ def test_anomaly_detection_logic():
     assert 'is_anomaly' in result.columns
 
 def test_recommendation_generation():
-    # Since recommendations now use DB session, we test the logic via mock or API.
-    # The API endpoint is /api/recommendations
     response = client.get("/api/recommendations")
     assert response.status_code in [200, 500]
 
