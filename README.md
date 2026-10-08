@@ -765,7 +765,3 @@ GitHub:
 https://github.com/Prachi-Ukey
 
 ---
-
-## 📄 License
-
-This project is developed for educational, portfolio, and demonstration purposes.
