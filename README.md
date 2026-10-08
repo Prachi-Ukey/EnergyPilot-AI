@@ -2,11 +2,17 @@
 
 ## AI-Powered Smart Energy Optimization Platform
 
-React JavaScript Vite Tailwind CSS FastAPI Python PostgreSQL Scikit-learn Docker Render
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,js,vite,tailwind,python,fastapi,postgresql,docker&perline=8" />
+</p>
 
-EnergyPilot AI is a full-stack AI-powered energy intelligence platform that analyzes electricity consumption data, detects unusual usage patterns, predicts future energy consumption, and generates actionable recommendations to reduce energy waste.
+<p align="center">
+  <b>React</b> · <b>JavaScript</b> · <b>Vite</b> · <b>Tailwind CSS</b> · <b>FastAPI</b> · <b>Python</b> · <b>PostgreSQL</b> · <b>Scikit-learn</b> · <b>Docker</b> · <b>Render</b>
+</p>
 
-Built with a React and Vite frontend and a Python FastAPI backend, the platform combines machine learning, data analytics, PostgreSQL, authentication, and interactive visualizations into a single energy monitoring and optimization system.
+EnergyPilot AI is a **full-stack AI-powered energy intelligence platform** that analyzes electricity consumption data, detects unusual usage patterns, predicts future energy consumption, and generates actionable recommendations to reduce energy waste.
+
+Built with a **React and Vite frontend** and a **Python FastAPI backend**, the platform combines machine learning, data analytics, PostgreSQL, authentication, and interactive visualizations into a single energy monitoring and optimization system.
 
 ---
 
